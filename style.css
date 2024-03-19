@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 14px 16px;
+  }
+  
+  .navbar .logo {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    padding: 12px 16px;
+    font-size: 22px;
+    border-radius: 4px;
+  }
+  
+  .main-title {
+    text-align: center;
+    font-size: 48px;
+    color: #333;
+    padding: 40px;
+    background-color: white;
+    margin-top: 20px;
+  }
+  
+  .guide-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  .guide {
+    background-color: #ffc107;
+    margin: 10px;
+    padding: 20px;
+    width: calc(50% - 40px); /* Adjust based on the width of the viewport */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .daily-dose {
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+
+  /* Продолжение вашего CSS-кода */
+.article {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Добавляем немного тени для визуального отделения блоков */
+    border-radius: 8px; /* Скругляем углы блоков */
+  }
+  
+  .article h2 {
+    color: #888; /* Светло-серый цвет даты */
+    margin-bottom: 5px; /* Отступ снизу для даты */
+  }
+  
+  .article h3 {
+    color: #333; /* Темно-серый цвет для заголовка статьи */
+    margin-bottom: 15px; /* Отступ снизу для заголовка статьи */
+  }
+  
+  .article img {
+    max-width: 100%; /* Изображения будут адаптивными внутри своего блока */
+    height: auto; /* Высота изображения будет автоматически пропорциональной ширине */
+    border-radius: 4px; /* Скругляем углы изображений */
+    margin-bottom: 15px; /* Отступ снизу для изображений */
+  }
+  
+  /* Добавим стили для мобильных устройств */
+  @media (max-width: 768px) {
+    .guide-grid {
+      flex-direction: column; /* Элементы будут стоять друг под другом */
+    }
+  
+    .article {
+      margin: 10px 0; /* Уменьшим отступы по бокам для экономии места */
+    }
+  }
+  
