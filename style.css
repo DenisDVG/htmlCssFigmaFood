@@ -33,6 +33,11 @@
        url('./fonts/PTSans-BoldItalic.ttf') format('truetype');
 }
 
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+
 /* Wrapper */
 .wrapper {
   min-height: 100%;
@@ -145,7 +150,6 @@
 .logo {
   width: 90px;
   height: 26px;
-  font-family: 'PT Sans', sans-serif;
   font-size: 14px;
   font-weight: 700; /* Bold text */
   line-height: 18.12px;
@@ -161,11 +165,34 @@
 }
 
 /* Main title style */
-.main-title {}
+.guides-title {
+  /* width: 90px;
+  height: 26px; */
+  font-size: 30px;
+  font-weight: 400; /* Bold text */
+  line-height: 18.12px;
+  color: #464646;
+  margin-bottom: 25px;
+}
 
 /* Grid for guides */
-.guide-grid {}
-.guide {}
+.guide-grid {
+  display: flex;
+  flex-wrap: wrap; /* This will allow items to wrap onto the next line */
+  justify-content: space-between; /* This aligns items to the left */
+  align-items: flex-start; /* This aligns items to the top */
+}
+.guide {
+  width: 31%; /* Set the width of each item to be 33% of the container's width */
+  box-sizing: border-box; /* This ensures that padding and border are included in the width */
+  height: 50px;
+  display: flex;
+  align-items: center; /* This centers the content vertically */
+  justify-content: center; /* This centers the content horizontally */
+  background-color: #FFE500;
+  font-size: 16px;
+  margin-bottom: 3%;
+}
 
 /* Daily dose section and articles */
 .daily-dose {}
