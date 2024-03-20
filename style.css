@@ -1,93 +1,180 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
-  .navbar {
-    background-color: #333;
-    overflow: hidden;
-    padding: 14px 16px;
-  }
-  
-  .navbar .logo {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    background-color: #007bff;
-    padding: 12px 16px;
-    font-size: 22px;
-    border-radius: 4px;
-  }
-  
-  .main-title {
-    text-align: center;
-    font-size: 48px;
-    color: #333;
-    padding: 40px;
-    background-color: white;
-    margin-top: 20px;
-  }
-  
-  .guide-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  
-  .guide {
-    background-color: #ffc107;
-    margin: 10px;
-    padding: 20px;
-    width: calc(50% - 40px); /* Adjust based on the width of the viewport */
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-  
-  .daily-dose {
-    padding: 20px;
-    background-color: #f4f4f4;
-  }
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'),
+       url('./fonts/PTSans-Regular.ttf') format('truetype');
+}
 
-  /* Продолжение вашего CSS-кода */
-.article {
-    background-color: white;
-    margin: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Добавляем немного тени для визуального отделения блоков */
-    border-radius: 8px; /* Скругляем углы блоков */
-  }
-  
-  .article h2 {
-    color: #888; /* Светло-серый цвет даты */
-    margin-bottom: 5px; /* Отступ снизу для даты */
-  }
-  
-  .article h3 {
-    color: #333; /* Темно-серый цвет для заголовка статьи */
-    margin-bottom: 15px; /* Отступ снизу для заголовка статьи */
-  }
-  
-  .article img {
-    max-width: 100%; /* Изображения будут адаптивными внутри своего блока */
-    height: auto; /* Высота изображения будет автоматически пропорциональной ширине */
-    border-radius: 4px; /* Скругляем углы изображений */
-    margin-bottom: 15px; /* Отступ снизу для изображений */
-  }
-  
-  /* Добавим стили для мобильных устройств */
-  @media (max-width: 768px) {
-    .guide-grid {
-      flex-direction: column; /* Элементы будут стоять друг под другом */
-    }
-  
-    .article {
-      margin: 10px 0; /* Уменьшим отступы по бокам для экономии места */
-    }
-  }
-  
+/* Define PT Sans Italic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('PT Sans Italic'), local('PTSans-Italic'),
+       url('./fonts/PTSans-Italic.ttf') format('truetype');
+}
+
+/* Define PT Sans Bold */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'),
+       url('./fonts/PTSans-Bold.ttf') format('truetype');
+}
+
+/* Define PT Sans Bold Italic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'),
+       url('./fonts/PTSans-BoldItalic.ttf') format('truetype');
+}
+
+/* Wrapper */
+.wrapper {
+  min-height: 100%;
+	overflow: hidden;
+	display: flex;
+  flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar {}
+.navbar__wrapper {}
+.navbar__row {
+  height: 87px;
+}
+
+/* Menu icon styles for the navbar */
+.burger-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+.burger {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: none;
+  background: transparent;
+  width: 20px;
+  height: 14px;
+}
+.burger::before,
+.burger::after {
+  content: '';
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  border-radius: 10px;
+  background: #000;
+}
+.burger::before {
+  top: 0;
+  box-shadow: 0 6.5px 0 #000;
+  transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+.burger::after {
+  bottom: 0;
+  transition: bottom .3s .15s, transform .3s;
+}
+.burger-checkbox:checked + .burger::before {
+  top: 11px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 0 rgba(0,0,0,0);
+  transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+.burger-checkbox:checked + .burger::after {
+  bottom: 11px;
+  transform: rotate(-45deg);
+  transition: bottom .3s, transform .3s .15s;
+}
+.menu-list {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: grid;
+  gap: 12px;
+  padding: 42px 0;
+  margin: 0;
+  background: orange;
+  list-style-type: none;
+  transform: translateX(-100%);
+  transition: .3s;
+  width: 200px;
+}
+.menu-item {
+  display: block;
+  padding: 8px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+}
+.menu-item:hover {
+  background: rgba(255,255,255,.2)
+}
+.burger-checkbox:checked ~ .menu-list {
+  transform: translateX(0);
+}
+
+.burger__label{
+  padding-top: 40px;
+}
+/* Content styles */
+.content {
+  flex-grow: 1;
+}
+
+/* Shared styles for wrapper within navbar and content */
+.navbar__wrapper {}
+
+/* Content row */
+.content__row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo style */
+.logo {
+  width: 90px;
+  height: 26px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700; /* Bold text */
+  line-height: 18.12px;
+  display: flex;
+  align-items: center; /* This centers the content vertically */
+  justify-content: center; /* This centers the content horizontally */
+  color: #FFFFFF; /* Text color is white */
+  background: #0036FF;
+  ; /* Adjusted background color to match image */
+  border: none; /* No border by default, adjust if needed */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-bottom: 30px;
+}
+
+/* Main title style */
+.main-title {}
+
+/* Grid for guides */
+.guide-grid {}
+.guide {}
+
+/* Daily dose section and articles */
+.daily-dose {}
+.article {}
+
+/* Responsive container */
+.container {
+  max-width: 375px;
+  margin: 0px auto;
+  background: #F4F4F4;
+  padding: 0 20px 0 20px;
+}
